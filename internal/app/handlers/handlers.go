@@ -7,6 +7,21 @@ import (
 	"strconv"
 )
 
+var UrlInputForm = `
+<html>
+    <head>
+    <title></title>
+    </head>
+    <body>
+        <form method="post">
+            <label>Enter URL to shorten: </label><input type="text" name="url">
+            <input type="submit" value="OK">
+        </form>
+    </body>
+</html>
+`
+var UrlStore []string
+
 func Shortener(w http.ResponseWriter, r *http.Request) {
 	UrlStore = make([]string, 0)
 	switch r.Method {
